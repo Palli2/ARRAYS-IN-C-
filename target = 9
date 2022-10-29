@@ -1,0 +1,26 @@
+class Solution {
+
+public:
+    void giveSolution(vector<int>& nums,int i,int target, vector<int> &v){
+       
+        if(nums.size()==0){
+            return;
+        }
+        if(i==nums.size()){
+            return;
+        }
+        if(nums[i]+nums[i+1]==target){
+            v.push_back(i);
+            v.push_back((i+1));
+        }
+        else{
+            giveSolution(nums,i+1,target,v);
+        } 
+    }
+
+    vector<int> twoSum(vector<int>& nums, int target) {
+         vector<int> v;
+     giveSolution(nums,0,target,v);
+        return v; 
+      }
+};
